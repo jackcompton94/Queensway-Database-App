@@ -1,12 +1,12 @@
 # queenswayDatabaseApp
 
 ## Purpose
-This desktop application allows a user to interact with a simple PostgresSQL database that hosts shows and event details from my band Queensway (pulled from IG @queenswayband)
+This desktop application allows a user to interact with a simple SQL Server database that hosts shows and event details from my band Queensway (pulled from IG @queenswayband)
 
 In order for a user to interact you must register an account and login (READ ONLY). Once logged in, the application uses abstraction leveraged by SQL queries over the database.
 
 ## Stack
-- PostgresSQL
+- SQL Server
 - .NET Framework
 - C++
 
