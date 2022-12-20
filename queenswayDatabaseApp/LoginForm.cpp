@@ -5,7 +5,7 @@ using namespace System::Windows::Forms;
 
 int main(array<String^>^ args) {
 
-	// implements MainForm 
+	// implements LoginForm 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	queenswayDatabaseApp::LoginForm form;
