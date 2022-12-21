@@ -7,7 +7,7 @@ In order for a user to interact you must register an account and login (READ ONL
 
 ## Stack
 - SQL Server
-- .NET Framework (Windows Forms)
+- .NET Framework
 - C++
 
 ## Database Diagram
