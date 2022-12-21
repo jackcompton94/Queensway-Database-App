@@ -49,8 +49,7 @@ namespace queenswayDatabaseApp {
 	private: System::Windows::Forms::Button^ signInButton;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Panel^ panel1;
-
-	protected:
+	private: System::Windows::Forms::LinkLabel^ igLinkLabel;
 
 
 	protected:
@@ -74,6 +73,7 @@ namespace queenswayDatabaseApp {
 			this->registerButton = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->igLinkLabel = (gcnew System::Windows::Forms::LinkLabel());
 			this->passwordLabel = (gcnew System::Windows::Forms::Label());
 			this->usernameTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->usernameLabel = (gcnew System::Windows::Forms::Label());
@@ -113,14 +113,15 @@ namespace queenswayDatabaseApp {
 			// 
 			this->registerButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"registerButton.BackgroundImage")));
 			this->registerButton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->registerButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->registerButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->registerButton->FlatAppearance->BorderSize = 0;
 			this->registerButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->registerButton->ForeColor = System::Drawing::SystemColors::Menu;
-			this->registerButton->Location = System::Drawing::Point(72, 282);
+			this->registerButton->Location = System::Drawing::Point(84, 282);
 			this->registerButton->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->registerButton->Name = L"registerButton";
-			this->registerButton->Size = System::Drawing::Size(220, 29);
+			this->registerButton->Size = System::Drawing::Size(198, 29);
 			this->registerButton->TabIndex = 5;
 			this->registerButton->Text = L"Register";
 			this->registerButton->UseVisualStyleBackColor = true;
@@ -133,24 +134,45 @@ namespace queenswayDatabaseApp {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::Menu;
-			this->label2->Location = System::Drawing::Point(69, 148);
+			this->label2->Location = System::Drawing::Point(65, 137);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(223, 34);
+			this->label2->Size = System::Drawing::Size(228, 17);
 			this->label2->TabIndex = 6;
-			this->label2->Text = L"Database of Queensway shows \r\npulled from IG @queenswayband";
+			this->label2->Text = L"Database of shows pulled from IG";
 			// 
 			// panel2
 			// 
 			this->panel2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel2.BackgroundImage")));
+			this->panel2->Controls->Add(this->igLinkLabel);
 			this->panel2->Controls->Add(this->label2);
 			this->panel2->Controls->Add(this->registerButton);
 			this->panel2->Controls->Add(this->label1);
 			this->panel2->Controls->Add(this->pictureBox1);
+			this->panel2->Cursor = System::Windows::Forms::Cursors::Default;
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(368, 353);
+			this->panel2->Size = System::Drawing::Size(349, 353);
 			this->panel2->TabIndex = 6;
+			// 
+			// igLinkLabel
+			// 
+			this->igLinkLabel->ActiveLinkColor = System::Drawing::Color::DimGray;
+			this->igLinkLabel->AutoSize = true;
+			this->igLinkLabel->BackColor = System::Drawing::Color::Transparent;
+			this->igLinkLabel->Font = (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->igLinkLabel->ForeColor = System::Drawing::SystemColors::Menu;
+			this->igLinkLabel->LinkColor = System::Drawing::SystemColors::Menu;
+			this->igLinkLabel->Location = System::Drawing::Point(103, 157);
+			this->igLinkLabel->Name = L"igLinkLabel";
+			this->igLinkLabel->Size = System::Drawing::Size(157, 17);
+			this->igLinkLabel->TabIndex = 7;
+			this->igLinkLabel->TabStop = true;
+			this->igLinkLabel->Text = L"@queenswaybaltimore";
+			this->igLinkLabel->VisitedLinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->igLinkLabel->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &LoginForm::igClicked);
 			// 
 			// passwordLabel
 			// 
@@ -179,7 +201,7 @@ namespace queenswayDatabaseApp {
 			this->usernameTextBox->Location = System::Drawing::Point(79, 104);
 			this->usernameTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->usernameTextBox->Name = L"usernameTextBox";
-			this->usernameTextBox->Size = System::Drawing::Size(181, 25);
+			this->usernameTextBox->Size = System::Drawing::Size(183, 25);
 			this->usernameTextBox->TabIndex = 2;
 			// 
 			// usernameLabel
@@ -209,16 +231,17 @@ namespace queenswayDatabaseApp {
 			this->passwordTextBox->Location = System::Drawing::Point(79, 157);
 			this->passwordTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->passwordTextBox->Name = L"passwordTextBox";
-			this->passwordTextBox->Size = System::Drawing::Size(181, 25);
+			this->passwordTextBox->Size = System::Drawing::Size(183, 25);
 			this->passwordTextBox->TabIndex = 3;
-			this->passwordTextBox->Text = L"Password";
 			this->passwordTextBox->UseSystemPasswordChar = true;
 			// 
 			// signInButton
 			// 
 			this->signInButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+			this->signInButton->BackColor = System::Drawing::SystemColors::Control;
 			this->signInButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"signInButton.BackgroundImage")));
 			this->signInButton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->signInButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->signInButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->signInButton->FlatAppearance->BorderSize = 0;
 			this->signInButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -226,10 +249,10 @@ namespace queenswayDatabaseApp {
 			this->signInButton->Location = System::Drawing::Point(79, 282);
 			this->signInButton->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->signInButton->Name = L"signInButton";
-			this->signInButton->Size = System::Drawing::Size(181, 29);
+			this->signInButton->Size = System::Drawing::Size(183, 29);
 			this->signInButton->TabIndex = 4;
 			this->signInButton->Text = L"Sign in";
-			this->signInButton->UseVisualStyleBackColor = true;
+			this->signInButton->UseVisualStyleBackColor = false;
 			this->signInButton->Click += gcnew System::EventHandler(this, &LoginForm::signInClicked);
 			// 
 			// label3
@@ -255,12 +278,11 @@ namespace queenswayDatabaseApp {
 			this->panel1->Controls->Add(this->usernameLabel);
 			this->panel1->Controls->Add(this->usernameTextBox);
 			this->panel1->Controls->Add(this->passwordLabel);
-			this->panel1->Location = System::Drawing::Point(348, 0);
+			this->panel1->Location = System::Drawing::Point(346, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(321, 388);
+			this->panel1->Size = System::Drawing::Size(323, 353);
 			this->panel1->TabIndex = 5;
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &LoginForm::panel1_Paint);
 			// 
 			// LoginForm
 			// 
@@ -292,9 +314,6 @@ namespace queenswayDatabaseApp {
 
 	public:
 		User^ user = nullptr;
-
-	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	}
 
 	private: 
 		System::Void registerClicked(System::Object^ sender, System::EventArgs^ e) {
@@ -345,8 +364,12 @@ namespace queenswayDatabaseApp {
 		}
 	}
 
-	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void igClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+		System::Diagnostics::Process::Start("https://www.instagram.com/queenswaybaltimore");
 	}
-	
+
+	private: 
+		System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }
