@@ -1,4 +1,4 @@
-# queenswayDatabaseApp
+# Queensway-Database-App
 
 ## Purpose
 This desktop application allows a user to interact with a simple SQL Server database that hosts show and event details from my band Queensway (pulled from our Instagram: @queenswayband)
