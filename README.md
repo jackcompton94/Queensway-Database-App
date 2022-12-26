@@ -3,7 +3,7 @@
 ## Purpose
 This desktop application allows a user to interact with a simple SQL Server database that hosts show and event details from my band Queensway (pulled from our Instagram: @queenswayband)
 
-In order for a user to interact you must register an account and login (READ ONLY). Once logged in, the application uses abstraction leveraged by SQL queries over the database to present stats and information related to the information hosted in the database.
+In order for a user to interact you must register an account and login (READ ONLY). Once logged in, the application uses abstraction leveraged by SQL queries over the database to present stats and information related to the band's history.
 
 ## Stack
 - SQL Server
