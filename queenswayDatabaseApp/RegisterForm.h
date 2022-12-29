@@ -9,12 +9,14 @@ namespace queenswayDatabaseApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Summary for RegisterForm
 	/// </summary>
 	public ref class RegisterForm : public System::Windows::Forms::Form
 	{
+
 	public:
 		Form^ loginForm;
 		RegisterForm(void)
@@ -24,6 +26,8 @@ namespace queenswayDatabaseApp {
 			//TODO: Add the constructor code here
 			//
 		}
+
+		// overloaded constructor that takes in a pointer from the login form to allow BACK button to work (switch screens)
 		RegisterForm(Form^ loginForm)
 		{
 			this->loginForm = loginForm;
@@ -63,9 +67,9 @@ namespace queenswayDatabaseApp {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
-#pragma region Windows Form Designer generated code
+		#pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -255,6 +259,7 @@ namespace queenswayDatabaseApp {
 			this->registerButton->TabIndex = 11;
 			this->registerButton->Text = L"Register";
 			this->registerButton->UseVisualStyleBackColor = true;
+			this->registerButton->Click += gcnew System::EventHandler(this, &RegisterForm::registerClicked);
 			// 
 			// backButton
 			// 
@@ -309,10 +314,70 @@ namespace queenswayDatabaseApp {
 		}
 #pragma endregion
 
-	private: System::Void backClicked(System::Object^ sender, System::EventArgs^ e) {
-		this->Hide();
-		loginForm->Show();
+	public:
+		User^ user = nullptr;
 
-	}
-};
+	private:
+		System::Void backClicked(System::Object^ sender, System::EventArgs^ e) {
+			this->Hide();
+			loginForm->Show();
+		}
+
+	private:
+		System::Void registerClicked(System::Object^ sender, System::EventArgs^ e) {
+			String^ firstName = firstNameTextBox->Text;
+			String^ lastName = lastNameTextBox->Text;
+			String^ username = usernameTextBox->Text;
+			String^ password = passwordTextBox->Text;
+			String^ confirmPassword = confirmPasswordTextBox->Text;
+
+			if (username->Length == 0 || password->Length == 0) {
+				MessageBox::Show("Please enter a username and password");
+				MessageBoxButtons::OK;
+				return;
+			}
+
+			if (firstName->Length == 0 || lastName->Length == 0) {
+				MessageBox::Show("Please enter your first and last name");
+				MessageBoxButtons::OK;
+				return;
+			}
+
+			if (password != confirmPassword) {
+				MessageBox::Show("Passwords do not match");
+				MessageBoxButtons::OK;
+				return;
+			}
+
+			try {
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+
+				String^ sqlQuery = "INSERT INTO users(username, password, first_name, last_name) VALUES(@username, @password, @firstname, @lastname)";
+
+				SqlCommand command(sqlQuery, % sqlConn);
+				command.Parameters->AddWithValue("@username", username);
+				command.Parameters->AddWithValue("@password", password);
+				command.Parameters->AddWithValue("@firstname", firstName);
+				command.Parameters->AddWithValue("@lastname", lastName);
+
+				command.ExecuteNonQuery();
+				user = gcnew User;
+				user->username = username;
+				user->password = password;
+				user->firstName = firstName;
+				user->lastName = lastName;
+
+				this->Close();
+				loginForm->Show();
+			}
+			catch (Exception^ e) {
+				MessageBox::Show("Failed to connect to the database");
+				MessageBoxButtons::OK;
+			}
+
+		MessageBox::Show("Thanks for registering. Please log in.");
+		}
+	};
 }

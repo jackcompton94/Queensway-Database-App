@@ -40,29 +40,18 @@ namespace queenswayDatabaseApp {
 	private: System::Windows::Forms::PictureBox^ queenswayLogo;
 	private: System::Windows::Forms::Label^ noAccountLbl;
 	protected:
-
-
-
 	private: System::Windows::Forms::Button^ registerButton;
 	private: System::Windows::Forms::Label^ databaseLbl;
-
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ passwordLbl;
-
 	private: System::Windows::Forms::TextBox^ usernameTextBox;
 	private: System::Windows::Forms::Label^ usernameLbl;
-
 	private: System::Windows::Forms::TextBox^ passwordTextBox;
 	private: System::Windows::Forms::Button^ signInButton;
 	private: System::Windows::Forms::Label^ signInLbl;
-
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::LinkLabel^ igLinkLbl;
-
-
-
 	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -99,7 +88,7 @@ namespace queenswayDatabaseApp {
 			// 
 			this->queenswayLogo->BackColor = System::Drawing::Color::Transparent;
 			this->queenswayLogo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"queenswayLogo.Image")));
-			this->queenswayLogo->Location = System::Drawing::Point(57, 12);
+			this->queenswayLogo->Location = System::Drawing::Point(22, 12);
 			this->queenswayLogo->Name = L"queenswayLogo";
 			this->queenswayLogo->Size = System::Drawing::Size(250, 90);
 			this->queenswayLogo->TabIndex = 0;
@@ -112,7 +101,7 @@ namespace queenswayDatabaseApp {
 			this->noAccountLbl->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->noAccountLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->noAccountLbl->Location = System::Drawing::Point(141, 263);
+			this->noAccountLbl->Location = System::Drawing::Point(106, 263);
 			this->noAccountLbl->Name = L"noAccountLbl";
 			this->noAccountLbl->Size = System::Drawing::Size(81, 16);
 			this->noAccountLbl->TabIndex = 1;
@@ -127,7 +116,7 @@ namespace queenswayDatabaseApp {
 			this->registerButton->FlatAppearance->BorderSize = 0;
 			this->registerButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->registerButton->ForeColor = System::Drawing::SystemColors::Menu;
-			this->registerButton->Location = System::Drawing::Point(84, 282);
+			this->registerButton->Location = System::Drawing::Point(49, 282);
 			this->registerButton->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->registerButton->Name = L"registerButton";
 			this->registerButton->Size = System::Drawing::Size(198, 29);
@@ -143,7 +132,7 @@ namespace queenswayDatabaseApp {
 			this->databaseLbl->Font = (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->databaseLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->databaseLbl->Location = System::Drawing::Point(65, 137);
+			this->databaseLbl->Location = System::Drawing::Point(30, 137);
 			this->databaseLbl->Name = L"databaseLbl";
 			this->databaseLbl->Size = System::Drawing::Size(228, 17);
 			this->databaseLbl->TabIndex = 6;
@@ -161,7 +150,7 @@ namespace queenswayDatabaseApp {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(349, 334);
+			this->panel2->Size = System::Drawing::Size(293, 334);
 			this->panel2->TabIndex = 6;
 			// 
 			// igLinkLbl
@@ -173,7 +162,7 @@ namespace queenswayDatabaseApp {
 				static_cast<System::Byte>(0)));
 			this->igLinkLbl->ForeColor = System::Drawing::SystemColors::Menu;
 			this->igLinkLbl->LinkColor = System::Drawing::SystemColors::Menu;
-			this->igLinkLbl->Location = System::Drawing::Point(103, 157);
+			this->igLinkLbl->Location = System::Drawing::Point(68, 157);
 			this->igLinkLbl->Name = L"igLinkLbl";
 			this->igLinkLbl->Size = System::Drawing::Size(157, 17);
 			this->igLinkLbl->TabIndex = 7;
@@ -210,7 +199,7 @@ namespace queenswayDatabaseApp {
 			this->usernameTextBox->Location = System::Drawing::Point(79, 104);
 			this->usernameTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->usernameTextBox->Name = L"usernameTextBox";
-			this->usernameTextBox->Size = System::Drawing::Size(183, 25);
+			this->usernameTextBox->Size = System::Drawing::Size(240, 25);
 			this->usernameTextBox->TabIndex = 2;
 			// 
 			// usernameLbl
@@ -240,7 +229,7 @@ namespace queenswayDatabaseApp {
 			this->passwordTextBox->Location = System::Drawing::Point(79, 157);
 			this->passwordTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->passwordTextBox->Name = L"passwordTextBox";
-			this->passwordTextBox->Size = System::Drawing::Size(183, 25);
+			this->passwordTextBox->Size = System::Drawing::Size(240, 25);
 			this->passwordTextBox->TabIndex = 3;
 			this->passwordTextBox->UseSystemPasswordChar = true;
 			// 
@@ -258,7 +247,7 @@ namespace queenswayDatabaseApp {
 			this->signInButton->Location = System::Drawing::Point(79, 282);
 			this->signInButton->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->signInButton->Name = L"signInButton";
-			this->signInButton->Size = System::Drawing::Size(183, 29);
+			this->signInButton->Size = System::Drawing::Size(240, 29);
 			this->signInButton->TabIndex = 4;
 			this->signInButton->Text = L"Sign in";
 			this->signInButton->UseVisualStyleBackColor = false;
@@ -287,10 +276,10 @@ namespace queenswayDatabaseApp {
 			this->panel1->Controls->Add(this->usernameLbl);
 			this->panel1->Controls->Add(this->usernameTextBox);
 			this->panel1->Controls->Add(this->passwordLbl);
-			this->panel1->Location = System::Drawing::Point(346, 0);
+			this->panel1->Location = System::Drawing::Point(289, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(323, 353);
+			this->panel1->Size = System::Drawing::Size(380, 353);
 			this->panel1->TabIndex = 5;
 			// 
 			// LoginForm
