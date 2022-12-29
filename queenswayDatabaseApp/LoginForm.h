@@ -179,7 +179,7 @@ namespace queenswayDatabaseApp {
 			this->passwordLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->passwordLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->passwordLbl->Location = System::Drawing::Point(79, 134);
+			this->passwordLbl->Location = System::Drawing::Point(90, 134);
 			this->passwordLbl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->passwordLbl->Name = L"passwordLbl";
 			this->passwordLbl->Size = System::Drawing::Size(69, 20);
@@ -196,10 +196,10 @@ namespace queenswayDatabaseApp {
 			this->usernameTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->usernameTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->usernameTextBox->Location = System::Drawing::Point(79, 104);
+			this->usernameTextBox->Location = System::Drawing::Point(90, 104);
 			this->usernameTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->usernameTextBox->Name = L"usernameTextBox";
-			this->usernameTextBox->Size = System::Drawing::Size(240, 25);
+			this->usernameTextBox->Size = System::Drawing::Size(198, 25);
 			this->usernameTextBox->TabIndex = 2;
 			// 
 			// usernameLbl
@@ -209,7 +209,7 @@ namespace queenswayDatabaseApp {
 			this->usernameLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->usernameLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->usernameLbl->Location = System::Drawing::Point(77, 82);
+			this->usernameLbl->Location = System::Drawing::Point(88, 82);
 			this->usernameLbl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->usernameLbl->Name = L"usernameLbl";
 			this->usernameLbl->Size = System::Drawing::Size(71, 20);
@@ -226,10 +226,10 @@ namespace queenswayDatabaseApp {
 			this->passwordTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->passwordTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->passwordTextBox->Location = System::Drawing::Point(79, 157);
+			this->passwordTextBox->Location = System::Drawing::Point(90, 157);
 			this->passwordTextBox->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->passwordTextBox->Name = L"passwordTextBox";
-			this->passwordTextBox->Size = System::Drawing::Size(240, 25);
+			this->passwordTextBox->Size = System::Drawing::Size(198, 25);
 			this->passwordTextBox->TabIndex = 3;
 			this->passwordTextBox->UseSystemPasswordChar = true;
 			// 
@@ -244,10 +244,10 @@ namespace queenswayDatabaseApp {
 			this->signInButton->FlatAppearance->BorderSize = 0;
 			this->signInButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->signInButton->ForeColor = System::Drawing::SystemColors::Menu;
-			this->signInButton->Location = System::Drawing::Point(79, 282);
+			this->signInButton->Location = System::Drawing::Point(90, 282);
 			this->signInButton->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->signInButton->Name = L"signInButton";
-			this->signInButton->Size = System::Drawing::Size(240, 29);
+			this->signInButton->Size = System::Drawing::Size(198, 29);
 			this->signInButton->TabIndex = 4;
 			this->signInButton->Text = L"Sign in";
 			this->signInButton->UseVisualStyleBackColor = false;
@@ -299,7 +299,7 @@ namespace queenswayDatabaseApp {
 			this->MinimumSize = System::Drawing::Size(683, 373);
 			this->Name = L"LoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Sign in to the Queensway Database";
+			this->Text = L"Queensway Database Log In";
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->queenswayLogo))->EndInit();
 			this->panel2->ResumeLayout(false);

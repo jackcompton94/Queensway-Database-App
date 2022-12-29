@@ -1,4 +1,5 @@
 #include "LoginForm.h"
+#include "MainForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -9,17 +10,13 @@ int main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	queenswayDatabaseApp::LoginForm form;
+	queenswayDatabaseApp::MainForm mainForm;
 	
 	form.ShowDialog();
 	User^ user = form.user;
 
 	if (user != nullptr) {
-		MessageBox::Show("Success");
-		MessageBoxButtons::OK;
-	}
-	else {
-		MessageBox::Show("Unable to authenticate");
-		MessageBoxButtons::OK;
+		mainForm.ShowDialog();
 	}
 
 	return 0;

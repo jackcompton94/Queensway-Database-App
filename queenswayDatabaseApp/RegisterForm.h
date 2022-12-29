@@ -114,7 +114,7 @@ namespace queenswayDatabaseApp {
 			this->confirmPasswordTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->confirmPasswordTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->confirmPasswordTextBox->Location = System::Drawing::Point(18, 322);
+			this->confirmPasswordTextBox->Location = System::Drawing::Point(18, 309);
 			this->confirmPasswordTextBox->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->confirmPasswordTextBox->Name = L"confirmPasswordTextBox";
 			this->confirmPasswordTextBox->Size = System::Drawing::Size(193, 25);
@@ -128,7 +128,7 @@ namespace queenswayDatabaseApp {
 			this->firstNameLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->firstNameLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->firstNameLbl->Location = System::Drawing::Point(18, 104);
+			this->firstNameLbl->Location = System::Drawing::Point(18, 91);
 			this->firstNameLbl->Name = L"firstNameLbl";
 			this->firstNameLbl->Size = System::Drawing::Size(76, 20);
 			this->firstNameLbl->TabIndex = 4;
@@ -142,7 +142,7 @@ namespace queenswayDatabaseApp {
 			this->firstNameTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->firstNameTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->firstNameTextBox->Location = System::Drawing::Point(19, 129);
+			this->firstNameTextBox->Location = System::Drawing::Point(19, 116);
 			this->firstNameTextBox->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->firstNameTextBox->Name = L"firstNameTextBox";
 			this->firstNameTextBox->Size = System::Drawing::Size(190, 25);
@@ -155,7 +155,7 @@ namespace queenswayDatabaseApp {
 			this->confirmPasswordLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->confirmPasswordLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->confirmPasswordLbl->Location = System::Drawing::Point(18, 297);
+			this->confirmPasswordLbl->Location = System::Drawing::Point(18, 284);
 			this->confirmPasswordLbl->Name = L"confirmPasswordLbl";
 			this->confirmPasswordLbl->Size = System::Drawing::Size(123, 20);
 			this->confirmPasswordLbl->TabIndex = 5;
@@ -169,7 +169,7 @@ namespace queenswayDatabaseApp {
 			this->passwordTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->passwordTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->passwordTextBox->Location = System::Drawing::Point(19, 257);
+			this->passwordTextBox->Location = System::Drawing::Point(19, 244);
 			this->passwordTextBox->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->passwordTextBox->Name = L"passwordTextBox";
 			this->passwordTextBox->Size = System::Drawing::Size(193, 25);
@@ -183,7 +183,7 @@ namespace queenswayDatabaseApp {
 			this->usernameLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->usernameLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->usernameLbl->Location = System::Drawing::Point(15, 167);
+			this->usernameLbl->Location = System::Drawing::Point(15, 154);
 			this->usernameLbl->Name = L"usernameLbl";
 			this->usernameLbl->Size = System::Drawing::Size(71, 20);
 			this->usernameLbl->TabIndex = 8;
@@ -197,7 +197,7 @@ namespace queenswayDatabaseApp {
 			this->usernameTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->usernameTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->usernameTextBox->Location = System::Drawing::Point(18, 192);
+			this->usernameTextBox->Location = System::Drawing::Point(18, 179);
 			this->usernameTextBox->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->usernameTextBox->Name = L"usernameTextBox";
 			this->usernameTextBox->Size = System::Drawing::Size(193, 25);
@@ -210,7 +210,7 @@ namespace queenswayDatabaseApp {
 			this->passwordLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->passwordLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->passwordLbl->Location = System::Drawing::Point(18, 232);
+			this->passwordLbl->Location = System::Drawing::Point(18, 219);
 			this->passwordLbl->Name = L"passwordLbl";
 			this->passwordLbl->Size = System::Drawing::Size(69, 20);
 			this->passwordLbl->TabIndex = 9;
@@ -223,7 +223,7 @@ namespace queenswayDatabaseApp {
 			this->lastNameLbl->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lastNameLbl->ForeColor = System::Drawing::SystemColors::Menu;
-			this->lastNameLbl->Location = System::Drawing::Point(224, 104);
+			this->lastNameLbl->Location = System::Drawing::Point(224, 91);
 			this->lastNameLbl->Name = L"lastNameLbl";
 			this->lastNameLbl->Size = System::Drawing::Size(74, 20);
 			this->lastNameLbl->TabIndex = 12;
@@ -237,7 +237,7 @@ namespace queenswayDatabaseApp {
 			this->lastNameTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lastNameTextBox->ForeColor = System::Drawing::SystemColors::Menu;
-			this->lastNameTextBox->Location = System::Drawing::Point(226, 129);
+			this->lastNameTextBox->Location = System::Drawing::Point(226, 116);
 			this->lastNameTextBox->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->lastNameTextBox->Name = L"lastNameTextBox";
 			this->lastNameTextBox->Size = System::Drawing::Size(190, 25);
@@ -307,7 +307,7 @@ namespace queenswayDatabaseApp {
 			this->MinimumSize = System::Drawing::Size(458, 465);
 			this->Name = L"RegisterForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RegisterForm";
+			this->Text = L"Register an Account";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
