@@ -38,6 +38,12 @@ namespace queenswayDatabaseApp {
 	private: System::Windows::Forms::Label^ welcomeLbl;
 	private: System::Windows::Forms::Label^ tutorialLbl;
 	private: System::Windows::Forms::DataGridView^ dataGridView;
+	private: System::Windows::Forms::ComboBox^ viewByState;
+	private: System::Windows::Forms::ComboBox^ viewByCity;
+	private: System::Windows::Forms::ComboBox^ viewByHeadliner;
+	private: System::Windows::Forms::ComboBox^ viewByEventType;
+
+
 
 
 
@@ -71,6 +77,10 @@ namespace queenswayDatabaseApp {
 			this->welcomeLbl = (gcnew System::Windows::Forms::Label());
 			this->tutorialLbl = (gcnew System::Windows::Forms::Label());
 			this->dataGridView = (gcnew System::Windows::Forms::DataGridView());
+			this->viewByState = (gcnew System::Windows::Forms::ComboBox());
+			this->viewByCity = (gcnew System::Windows::Forms::ComboBox());
+			this->viewByHeadliner = (gcnew System::Windows::Forms::ComboBox());
+			this->viewByEventType = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -122,7 +132,7 @@ namespace queenswayDatabaseApp {
 			this->dataGridView->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
 			this->dataGridView->GridColor = System::Drawing::SystemColors::Window;
-			this->dataGridView->Location = System::Drawing::Point(11, 145);
+			this->dataGridView->Location = System::Drawing::Point(18, 127);
 			this->dataGridView->MultiSelect = false;
 			this->dataGridView->Name = L"dataGridView";
 			this->dataGridView->ReadOnly = true;
@@ -144,9 +154,69 @@ namespace queenswayDatabaseApp {
 			this->dataGridView->RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->dataGridView->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView->Size = System::Drawing::Size(516, 479);
+			this->dataGridView->Size = System::Drawing::Size(516, 497);
 			this->dataGridView->TabIndex = 10;
 			this->dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainForm::dataGridView_CellContentClick);
+			// 
+			// viewByState
+			// 
+			this->viewByState->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(73)));
+			this->viewByState->DisplayMember = L"View by State";
+			this->viewByState->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->viewByState->Font = (gcnew System::Drawing::Font(L"Arial", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->viewByState->ForeColor = System::Drawing::SystemColors::Menu;
+			this->viewByState->FormattingEnabled = true;
+			this->viewByState->Location = System::Drawing::Point(431, 95);
+			this->viewByState->Name = L"viewByState";
+			this->viewByState->Size = System::Drawing::Size(103, 23);
+			this->viewByState->TabIndex = 11;
+			// 
+			// viewByCity
+			// 
+			this->viewByCity->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(73)));
+			this->viewByCity->DisplayMember = L"View by City";
+			this->viewByCity->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->viewByCity->Font = (gcnew System::Drawing::Font(L"Arial", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->viewByCity->ForeColor = System::Drawing::SystemColors::Menu;
+			this->viewByCity->FormattingEnabled = true;
+			this->viewByCity->Location = System::Drawing::Point(304, 95);
+			this->viewByCity->Name = L"viewByCity";
+			this->viewByCity->Size = System::Drawing::Size(121, 23);
+			this->viewByCity->TabIndex = 12;
+			// 
+			// viewByHeadliner
+			// 
+			this->viewByHeadliner->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(73)));
+			this->viewByHeadliner->DisplayMember = L"View by Headliner";
+			this->viewByHeadliner->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->viewByHeadliner->Font = (gcnew System::Drawing::Font(L"Arial", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->viewByHeadliner->ForeColor = System::Drawing::SystemColors::Menu;
+			this->viewByHeadliner->FormattingEnabled = true;
+			this->viewByHeadliner->Location = System::Drawing::Point(167, 95);
+			this->viewByHeadliner->Name = L"viewByHeadliner";
+			this->viewByHeadliner->Size = System::Drawing::Size(131, 23);
+			this->viewByHeadliner->TabIndex = 13;
+			// 
+			// viewByEventType
+			// 
+			this->viewByEventType->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(73)));
+			this->viewByEventType->DisplayMember = L"View by Event Type";
+			this->viewByEventType->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->viewByEventType->Font = (gcnew System::Drawing::Font(L"Arial", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->viewByEventType->ForeColor = System::Drawing::SystemColors::Menu;
+			this->viewByEventType->FormattingEnabled = true;
+			this->viewByEventType->Location = System::Drawing::Point(18, 95);
+			this->viewByEventType->Name = L"viewByEventType";
+			this->viewByEventType->Size = System::Drawing::Size(143, 23);
+			this->viewByEventType->TabIndex = 14;
 			// 
 			// MainForm
 			// 
@@ -155,10 +225,16 @@ namespace queenswayDatabaseApp {
 			this->AutoSize = true;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(539, 636);
+			this->ClientSize = System::Drawing::Size(552, 636);
+			this->Controls->Add(this->viewByEventType);
+			this->Controls->Add(this->viewByHeadliner);
+			this->Controls->Add(this->viewByCity);
+			this->Controls->Add(this->viewByState);
 			this->Controls->Add(this->dataGridView);
 			this->Controls->Add(this->tutorialLbl);
 			this->Controls->Add(this->welcomeLbl);
+			this->MaximumSize = System::Drawing::Size(568, 675);
+			this->MinimumSize = System::Drawing::Size(568, 675);
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Main Menu";
@@ -176,21 +252,84 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 		SqlConnection sqlConn(connString);
 		sqlConn.Open();
 
+		// init dataGrid
 		String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id";
-		
+
 		SqlDataAdapter^ adapter = gcnew SqlDataAdapter(sqlQuery, connString);
 		DataSet^ shows = gcnew DataSet();
+
 		adapter->Fill(shows, "Shows");
 
 		dataGridView->DataSource = shows;
 		dataGridView->DataMember = "Shows";
+
+		// init viewByState
+		String^ stateQuery = "SELECT DISTINCT(state) FROM shows";
+
+		SqlDataAdapter^ stateAdapter = gcnew SqlDataAdapter(stateQuery, connString);
+		DataTable^ stateTable = gcnew DataTable();
+		stateAdapter->Fill(stateTable);
+
+		DataRow^ stateRow = stateTable->NewRow();
+		stateRow[0] = "View by State";
+		stateTable->Rows->InsertAt(stateRow, 0);
+
+		viewByState->DataSource = stateTable;
+		viewByState->DisplayMember = "View by State";
+		viewByState->ValueMember = "state";
+
+		// init viewByCity
+		String^ cityQuery = "SELECT DISTINCT(city) FROM shows";
+
+		SqlDataAdapter^ cityAdapter = gcnew SqlDataAdapter(cityQuery, connString);
+		DataTable^ cityTable = gcnew DataTable();
+		cityAdapter->Fill(cityTable);
+
+		DataRow^ cityRow = cityTable->NewRow();
+		cityRow[0] = "View by City";
+		cityTable->Rows->InsertAt(cityRow, 0);
+
+		viewByCity->DataSource = cityTable;
+		viewByCity->DisplayMember = "View by City";
+		viewByCity->ValueMember = "city";
+
+		// init viewByHeadliner
+		String^ headlinerQuery = "SELECT DISTINCT(headliner) FROM events";
+
+		SqlDataAdapter^ headlinerAdapter = gcnew SqlDataAdapter(headlinerQuery, connString);
+		DataTable^ headlinerTable = gcnew DataTable();
+		headlinerAdapter->Fill(headlinerTable);
+
+		DataRow^ headlinerRow = headlinerTable->NewRow();
+		headlinerRow[0] = "View by Headliner";
+		headlinerTable->Rows->InsertAt(headlinerRow, 0);
+
+		viewByHeadliner->DataSource = headlinerTable;
+		viewByHeadliner->DisplayMember = "View by Headliner";
+		viewByHeadliner->ValueMember = "headliner";
+
+		// init viewByEventType
+		String^ eventTypeQuery = "SELECT DISTINCT(event_type) FROM events";
+
+		SqlDataAdapter^ eventTypeAdapter = gcnew SqlDataAdapter(eventTypeQuery, connString);
+		DataTable^ eventTypeTable = gcnew DataTable();
+		eventTypeAdapter->Fill(eventTypeTable);
+
+		DataRow^ eventTypeRow = eventTypeTable->NewRow();
+		eventTypeRow[0] = "View by Event Type";
+		eventTypeTable->Rows->InsertAt(eventTypeRow, 0);
+
+		viewByEventType->DataSource = eventTypeTable;
+		viewByEventType->DisplayMember = "View by Event Type";
+		viewByEventType->ValueMember = "event_type";
 	}
 	catch (Exception^ e) {
 		MessageBox::Show("Failed to connect to the database");
 		MessageBoxButtons::OK;
 	}
 }
-private: System::Void dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
+
+	private: System::Void dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
 };
 }
