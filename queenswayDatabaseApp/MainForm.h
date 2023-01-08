@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 namespace queenswayDatabaseApp {
 
@@ -172,6 +173,7 @@ namespace queenswayDatabaseApp {
 			this->viewByState->Name = L"viewByState";
 			this->viewByState->Size = System::Drawing::Size(103, 23);
 			this->viewByState->TabIndex = 11;
+			this->viewByState->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::viewByState_SelectedIndexChanged);
 			// 
 			// viewByCity
 			// 
@@ -187,6 +189,7 @@ namespace queenswayDatabaseApp {
 			this->viewByCity->Name = L"viewByCity";
 			this->viewByCity->Size = System::Drawing::Size(121, 23);
 			this->viewByCity->TabIndex = 12;
+			this->viewByCity->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::viewByCity_SelectedIndexChanged);
 			// 
 			// viewByHeadliner
 			// 
@@ -202,6 +205,7 @@ namespace queenswayDatabaseApp {
 			this->viewByHeadliner->Name = L"viewByHeadliner";
 			this->viewByHeadliner->Size = System::Drawing::Size(131, 23);
 			this->viewByHeadliner->TabIndex = 13;
+			this->viewByHeadliner->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::viewByHeadliner_SelectedIndexChanged);
 			// 
 			// viewByEventType
 			// 
@@ -217,6 +221,7 @@ namespace queenswayDatabaseApp {
 			this->viewByEventType->Name = L"viewByEventType";
 			this->viewByEventType->Size = System::Drawing::Size(143, 23);
 			this->viewByEventType->TabIndex = 14;
+			this->viewByEventType->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::viewByEventType_SelectedIndexChanged);
 			// 
 			// MainForm
 			// 
@@ -251,17 +256,6 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
 		SqlConnection sqlConn(connString);
 		sqlConn.Open();
-
-		// init dataGrid
-		String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id";
-
-		SqlDataAdapter^ adapter = gcnew SqlDataAdapter(sqlQuery, connString);
-		DataSet^ shows = gcnew DataSet();
-
-		adapter->Fill(shows, "Shows");
-
-		dataGridView->DataSource = shows;
-		dataGridView->DataMember = "Shows";
 
 		// init viewByState
 		String^ stateQuery = "SELECT DISTINCT(state) FROM shows";
@@ -331,5 +325,198 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 
 	private: System::Void dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
+
+private: System::Void viewByHeadliner_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ headlinerSelection = viewByHeadliner->Text;
+
+	String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
+	SqlConnection sqlConn(connString);
+	sqlConn.Open();
+
+	String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id WHERE headliner = @headliner";
+
+	SqlCommand command(sqlQuery, % sqlConn);
+
+	// Add the selected headliner to the command/query
+	command.Parameters->AddWithValue("@headliner", headlinerSelection);
+
+	SqlDataReader^ reader = command.ExecuteReader();
+
+	// Create a new DataTable to store the results of the query
+	DataTable^ dataTable = gcnew DataTable();
+
+	// DataTable columns
+	dataTable->Columns->Add("Date", DateTime::typeid);
+	dataTable->Columns->Add("City", String::typeid);
+	dataTable->Columns->Add("State", String::typeid);
+	dataTable->Columns->Add("Headliner", String::typeid);
+	dataTable->Columns->Add("Event Type", String::typeid);
+
+	while (reader->Read()) {
+		DateTime date = reader->GetDateTime(0);
+		String^ city = reader->GetString(1);
+		String^ state = reader->GetString(2);
+		String^ headliner = reader->GetString(3);
+		String^ eventType = reader->GetString(4);
+
+		// Add new rows to the Table
+		DataRow^ row = dataTable->NewRow();
+		row["Date"] = date;
+		row["City"] = city;
+		row["State"] = state;
+		row["Headliner"] = headliner;
+		row["Event Type"] = eventType;
+		dataTable->Rows->Add(row);
+	}
+
+	// Sets the DataSource of the DataGrid to the dataTable
+	dataGridView->DataSource = dataTable;
+
+	reader->Close();
+}
+private: System::Void viewByEventType_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ eventTypeSelection = viewByEventType->Text;
+
+	String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
+	SqlConnection sqlConn(connString);
+	sqlConn.Open();
+
+	String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id WHERE event_type = @eventType";
+
+	SqlCommand command(sqlQuery, % sqlConn);
+
+	// Add the selected headliner to the command/query
+	command.Parameters->AddWithValue("@eventType", eventTypeSelection);
+
+	SqlDataReader^ reader = command.ExecuteReader();
+
+	// Create a new DataTable to store the results of the query
+	DataTable^ dataTable = gcnew DataTable();
+
+	// DataTable columns
+	dataTable->Columns->Add("Date", DateTime::typeid);
+	dataTable->Columns->Add("City", String::typeid);
+	dataTable->Columns->Add("State", String::typeid);
+	dataTable->Columns->Add("Headliner", String::typeid);
+	dataTable->Columns->Add("Event Type", String::typeid);
+
+	while (reader->Read()) {
+		DateTime date = reader->GetDateTime(0);
+		String^ city = reader->GetString(1);
+		String^ state = reader->GetString(2);
+		String^ headliner = reader->GetString(3);
+		String^ eventType = reader->GetString(4);
+
+		// Add new rows to the Table
+		DataRow^ row = dataTable->NewRow();
+		row["Date"] = date;
+		row["City"] = city;
+		row["State"] = state;
+		row["Headliner"] = headliner;
+		row["Event Type"] = eventType;
+		dataTable->Rows->Add(row);
+	}
+
+	// Sets the DataSource of the DataGrid to the dataTable
+	dataGridView->DataSource = dataTable;
+
+	reader->Close();
+}
+private: System::Void viewByCity_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ citySelection = viewByCity->Text;
+
+	String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
+	SqlConnection sqlConn(connString);
+	sqlConn.Open();
+
+	String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id WHERE city = @city";
+
+	SqlCommand command(sqlQuery, % sqlConn);
+
+	// Add the selected headliner to the command/query
+	command.Parameters->AddWithValue("@city", citySelection);
+
+	SqlDataReader^ reader = command.ExecuteReader();
+
+	// Create a new DataTable to store the results of the query
+	DataTable^ dataTable = gcnew DataTable();
+
+	// DataTable columns
+	dataTable->Columns->Add("Date", DateTime::typeid);
+	dataTable->Columns->Add("City", String::typeid);
+	dataTable->Columns->Add("State", String::typeid);
+	dataTable->Columns->Add("Headliner", String::typeid);
+	dataTable->Columns->Add("Event Type", String::typeid);
+
+	while (reader->Read()) {
+		DateTime date = reader->GetDateTime(0);
+		String^ city = reader->GetString(1);
+		String^ state = reader->GetString(2);
+		String^ headliner = reader->GetString(3);
+		String^ eventType = reader->GetString(4);
+
+		// Add new rows to the Table
+		DataRow^ row = dataTable->NewRow();
+		row["Date"] = date;
+		row["City"] = city;
+		row["State"] = state;
+		row["Headliner"] = headliner;
+		row["Event Type"] = eventType;
+		dataTable->Rows->Add(row);
+	}
+
+	// Sets the DataSource of the DataGrid to the dataTable
+	dataGridView->DataSource = dataTable;
+
+	reader->Close();
+}
+private: System::Void viewByState_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ stateSelection = viewByState->Text;
+
+	String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=queensway;Integrated Security=True";
+	SqlConnection sqlConn(connString);
+	sqlConn.Open();
+
+	String^ sqlQuery = "SELECT date AS 'Date', city AS 'City', state AS 'State', headliner AS 'Headliner', event_type AS 'Event Type' FROM shows JOIN events ON shows.show_id = events.show_id WHERE state = @state";
+
+	SqlCommand command(sqlQuery, % sqlConn);
+
+	// Add the selected headliner to the command/query
+	command.Parameters->AddWithValue("@state", stateSelection);
+
+	SqlDataReader^ reader = command.ExecuteReader();
+
+	// Create a new DataTable to store the results of the query
+	DataTable^ dataTable = gcnew DataTable();
+
+	// DataTable columns
+	dataTable->Columns->Add("Date", DateTime::typeid);
+	dataTable->Columns->Add("City", String::typeid);
+	dataTable->Columns->Add("State", String::typeid);
+	dataTable->Columns->Add("Headliner", String::typeid);
+	dataTable->Columns->Add("Event Type", String::typeid);
+
+	while (reader->Read()) {
+		DateTime date = reader->GetDateTime(0);
+		String^ city = reader->GetString(1);
+		String^ state = reader->GetString(2);
+		String^ headliner = reader->GetString(3);
+		String^ eventType = reader->GetString(4);
+
+		// Add new rows to the Table
+		DataRow^ row = dataTable->NewRow();
+		row["Date"] = date;
+		row["City"] = city;
+		row["State"] = state;
+		row["Headliner"] = headliner;
+		row["Event Type"] = eventType;
+		dataTable->Rows->Add(row);
+	}
+
+	// Sets the DataSource of the DataGrid to the dataTable
+	dataGridView->DataSource = dataTable;
+
+	reader->Close();
+}
 };
 }
